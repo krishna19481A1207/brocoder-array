@@ -1,0 +1,78 @@
+https://practice.geeksforgeeks.org/problems/allocate-minimum-number-of-pages0937/1
+
+
+
+//User function Template for Java
+
+
+
+//User function Template for Java
+
+class Solution 
+{
+    //Function to find minimum number of pages.
+   static boolean ispossible(int[] A,int m,int barrier)
+   {
+            int t=0;
+            int alloc=1;
+            for(int i=0;i<A.length;i++)
+              {
+                if(A[i]>barrier) return false;
+                
+                
+                if(t+A[i] > barrier)
+                {
+                    t= A[i];
+                    alloc++;
+                }
+                else 
+                {
+                    t = t+A[i];
+                }
+                
+            }
+            if(alloc > m) return false;
+            return true;
+            
+}
+    
+    
+    public static int findPages(int[]A,int N,int M)
+    {
+        //Your code here
+        int n=N,m=M,res=-1;
+        
+        if(m>n) return -1;
+        
+        int sum=0,ma=A[0];
+        for(int i=0;i<n;i++)
+        {
+        sum+=A[i];
+        ma=Math.min(A[i],ma);
+        }
+    int low=ma;
+    int high=sum;
+        
+     
+        while(low<=high)
+        {
+            int mid = (low+high)>>1;
+            
+            
+            if(ispossible(A,m,mid))
+            {
+                res = mid;
+                high = mid-1;
+            }
+            else
+            {
+                low=mid+1;
+            }
+            
+            
+        }
+    
+    
+    return res;
+   }
+}
