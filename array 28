@@ -1,0 +1,39 @@
+https://practice.geeksforgeeks.org/problems/is-sudoku-valid4820/1
+
+
+
+//User function Template for Java
+
+class Solution{
+    static int isValid(int mat[][])
+    {
+        int r[][] = new int[9][9];
+        int c[][] = new int[9][9];
+        int s[][][] = new int[3][3][9];
+        
+        for(int i=0;i<9;i++)
+        {
+            for(int j=0; j<9; j++)
+              {
+            if(mat[i][j] >0 && mat[i][j] <=9 )
+            {
+                int number = mat[i][j] -1;
+                
+                if(r[i][number] != 0) return 0;
+                
+                r[i][number] = 1;
+                
+                if(c[j][number] != 0) return 0;
+                c[j][number] = 1;
+                
+                if(s[i/3][j/3][number] != 0) return 0;
+                s[i/3][j/3][number] = 1;
+            }
+        }
+        
+        }
+        
+       return 1; 
+    }
+}
+
