@@ -1,0 +1,74 @@
+https://leetcode.com/problems/set-matrix-zeroes/
+
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int row = matrix.length;
+        int col = matrix[0].length;
+
+int col0=1;
+
+ for(int r=0; r<row;r++)
+ {
+     if(matrix[r][0] == 0 ) col0 = 0;
+        
+            for(int c=1;c<col; c++)
+            
+             if(matrix[r][c]==0)
+                {
+                
+                   matrix[r][0]=0; //first element in row;
+                   matrix[0][c]=0; //''     ''     ''  col;               
+                }
+                
+
+ }
+for(int r=row-1;r >=0; r--)
+{
+    for(int c=col-1; c >=1; c--)
+    if(matrix[0][c]==0 || matrix[r][0]==0) matrix[r][c]=0;
+        if(col0 ==0) matrix[r][0]=0;
+    
+}
+
+    }
+}
+
+
+
+https://practice.geeksforgeeks.org/problems/boolean-matrix-problem-1587115620/1
+
+
+
+//User function Template for Java
+
+
+
+//User function Template for Java
+
+class Solution
+{
+    //Function to modify the matrix such that if a matrix cell matrix[i][j]
+    //is 1 then all the cells in its ith row and jth column will become 1.
+    void booleanMatrix(int matrix[][])
+    {
+        int row= matrix.length;
+        int col= matrix[0].length;
+int col0=0;
+        for(int r=0;r<row;r++)
+        {
+            if(matrix[r][0]==1) col0=1;
+            for(int c=1;c<col;c++) if(matrix[r][c]== 1) matrix[0][c]=matrix[r][0]=1;
+        
+        }
+        
+        for(int r=row-1; r>=0 ;r--)
+        {
+            for(int c= col-1; c>=1;c--)
+            if(matrix[0][c]==1 || matrix[r][0]==1) matrix[r][c]=1;
+            
+            if(col0==1) matrix[r][0]=1;
+        }
+        
+        
+    }
+}
