@@ -1,0 +1,25 @@
+https://leetcode.com/problems/two-sum/
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int t= target, l,r;
+        int n=nums.length;
+        HashMap<Integer,Integer>h = new HashMap<>();
+        int [] a = new int [2];
+
+        for(int i=0;i<n;i++)
+        {
+            int c = t-nums[i];
+            if(h.containsKey(c))
+            {
+          a[0] = h.get(c);
+          a[1] = i;
+            }
+           h.put(nums[i],i);
+        }
+    
+        
+        //throw new IllegalArgumentException();
+        return a;
+      }
+}
