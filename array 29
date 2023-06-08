@@ -1,0 +1,41 @@
+https://practice.geeksforgeeks.org/problems/row-with-max-1s0023/1
+
+
+
+//User function Template for Java
+
+
+
+//User function Template for Java
+
+class Solution {
+    int rowWithMax1s(int arr[][], int n, int m) {
+        // code here
+        int max = 0 , index = -1 , check=1;
+        
+        for(int r=0;r< n; r++)
+        {  
+            //System.out.println(" "+r+" "+"row ");
+            //int[] row = new int[m] ;
+            
+            List<Integer> a=new ArrayList<>();
+            for(int c=0;c<m;c++)
+            {
+                a.add(arr[r][c]);
+            }
+            //int check=1;
+            int f = Collections.frequency(a,check);
+            
+            //System.out.println(" " +f+" "+"frequecy ");
+            if(max < f)
+            {
+                //System.out.println("f updated");
+                 index = r  ;
+                  max =f;
+            }
+            
+        }
+        
+        return index;
+    }
+}
