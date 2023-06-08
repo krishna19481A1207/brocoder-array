@@ -1,0 +1,60 @@
+https://practice.geeksforgeeks.org/problems/3-sum-closest/1
+
+
+//User function Template for Java
+
+class Solution
+{
+    static int closest3Sum(int A[], int N, int X)
+    {
+        // code here
+        int n=N;
+        Arrays.sort(A);
+        int result = A[0]+A[1]+A[n-1];
+        for(int i=0;i<n-2;i++)
+        {
+            int apointer=i+1,bpointer =n-1;
+            
+        while(apointer<bpointer)
+        {
+            int currsum = A[apointer]  +A[bpointer] + A[i];
+            if(currsum>X) bpointer--;
+            else apointer++;
+        
+        if(Math.abs(currsum-X)< Math.abs(result-X)) result=currsum ;
+        }
+        
+        }
+        
+        return result;
+        }
+}
+https://leetcode.com/problems/3sum-closest/
+class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+       
+        int n=nums.length;
+        //Arrays.sort(nums);
+
+
+        int result=nums[0]+nums[1]+nums[n-1];
+Arrays.sort(nums);
+
+      for(int i=0;i<n-2;i++)
+        {
+        
+        int apointer=i+1;
+        int bpointer=n-1;
+        while(apointer < bpointer)
+        {
+         int currsum=nums[i]+nums[apointer]+nums[bpointer];
+         if(currsum>target)  bpointer--;
+         else apointer++;
+
+         if(Math.abs(currsum -target) < Math.abs(result-target))            result=currsum;
+        }
+        }
+
+return result;
+    }
+}
