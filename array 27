@@ -40,3 +40,61 @@ return mat;
 
 }
 
+
+https://practice.geeksforgeeks.org/problems/search-in-a-matrix-1587115621/1
+
+
+class answer
+{
+
+static int[] oneDarray(int[][] matrix,int n,int m)
+{
+ 
+ int i=0;
+ int row=n;
+ int col = m;
+    int []a= new int[row*col];
+ for(int r=0;r< row;r++)
+    for(int c=0; c< col ; c++)
+        a[i++]=matrix[r][c];
+
+return a;
+ }
+
+ static Boolean binarySearch(int[] a,int target)
+ {
+     int low=0;
+     int high=a.length-1;
+     Arrays.sort(a);
+     while(low <= high)
+     {
+         int mid= (low+high)>>1;
+
+         if(a[mid]==target) break;
+         else if(a[mid]< target) low= mid+1;
+         else high= mid-1; 
+     }
+
+Boolean ans;
+     if(low>high) ans= false;
+     else ans=true;
+return ans;
+}
+}
+
+
+class Solution extends answer
+{ 
+    //Function to search a given number in row-column sorted matrix.
+	static boolean search(int matrix[][], int n, int m, int x) 
+	{  
+	    // code here
+	    int[] a= new int[n *m];
+        a= oneDarray(matrix,n,m);
+        Boolean ans= binarySearch(a,x);    
+        return ans;
+	} 
+} 
+
+
+
