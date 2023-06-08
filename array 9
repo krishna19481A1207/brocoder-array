@@ -1,0 +1,73 @@
+https://leetcode.com/problems/sort-colors/
+class Solution {
+    
+  
+    public void sortColors(int[] nums) {
+        int n=nums.length;
+        if(n==0 || n==1 ) return;
+
+        int low = 0,high = n-1,index = 0;
+        while(low < high && index<=high)
+        {
+
+        if(nums[index]==0)
+        {
+            nums[index]=nums[low];
+            nums[low]=0;
+            low++;
+            index++;
+        }
+        else if(nums[index]==2)
+        {
+            nums[index] = nums[high];
+            nums[high]= 2;
+            high--;
+        }
+        else
+        {
+            index++;
+        }
+     }
+
+   
+     }
+
+}
+
+https://www.interviewbit.com/problems/sort-by-color/
+
+public class Solution {
+	public void sortColors(ArrayList<Integer> a) {
+        int n=a.size();
+        if(n==1 || n==0) return;
+        int low=0 ,high=n-1 ,index=low;
+        
+        
+        while(low<high && index<=high)
+        {
+        if(a.get(index)==0)
+        {
+            a.set(index,a.get(low));
+            a.set(low,0);
+            low++;
+            index++;
+            
+        }
+        else if(a.get(index)==2)
+        {
+            a.set(index,a.get(high));
+            a.set(high,2);
+            high--;
+        }
+        else
+        {
+            index++;
+        }
+        
+        }
+        
+        return;
+        
+        }
+        
+        }
